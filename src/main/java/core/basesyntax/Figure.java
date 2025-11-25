@@ -17,5 +17,3 @@ public abstract class Figure implements Area, Drawable {
         return String.format(Locale.ENGLISH, "%.2f", v);
     }
 }
-
-

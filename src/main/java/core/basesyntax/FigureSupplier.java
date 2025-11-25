@@ -3,7 +3,7 @@ package core.basesyntax;
 import java.util.Random;
 
 public class FigureSupplier {
-    private static final int FIGURE_COUNT = 5;
+    public static final String DEFAULT_COLOR = "white";
     private static final int MAX_RANDOM_SIDE = 10;
     private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
@@ -14,22 +14,22 @@ public class FigureSupplier {
 
         switch (type) {
             case 0:
-                return new Square(color, random.nextInt(10) + 1);
+                return new Square(color, random.nextInt(MAX_RANDOM_SIDE) + 1);
             case 1:
-                return new Rectangle(color, random.nextInt(10) + 1, random.nextInt(10) + 1);
+                return new Rectangle(color, random.nextInt(MAX_RANDOM_SIDE) + 1, random.nextInt(MAX_RANDOM_SIDE) + 1);
             case 2:
-                return new Circle(color, random.nextInt(10) + 1);
+                return new Circle(color, random.nextInt(MAX_RANDOM_SIDE) + 1);
             case 3:
-                return new RightTriangle(color, random.nextInt(10) + 1, random.nextInt(10) + 1);
+                return new RightTriangle(color, random.nextInt(MAX_RANDOM_SIDE) + 1, random.nextInt(MAX_RANDOM_SIDE) + 1);
             default:
                 return new IsoscelesTrapezoid(color,
-                        random.nextInt(10) + 1,
-                        random.nextInt(10) + 1,
-                        random.nextInt(10) + 1);
+                        random.nextInt(MAX_RANDOM_SIDE) + 1,
+                        random.nextInt(MAX_RANDOM_SIDE) + 1,
+                        random.nextInt(MAX_RANDOM_SIDE) + 1);
         }
     }
 
     public Figure getDefaultFigure() {
-        return new Circle("white", 10);
+        return new Circle(DEFAULT_COLOR, 10);
     }
 }
